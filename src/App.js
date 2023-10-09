@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import Signup from "./Components/Signup";
+import Signin from "./Components/Signin";
+import Home from "./Components/Home";
+import Protected from "./Components/Protected";
+import { useNavigate } from "react-router-dom";
 
 function App() {
+  const navigate = useNavigate();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/" element={<Signin navigate={navigate} />} />
+        <Route path="/Signup" element={<Signup navigate={navigate} />} />
+        <Route
+          path="/home"
+          element={<Protected Component={Home} navigate={navigate} />}
+        />
+      </Routes>
     </div>
   );
 }
