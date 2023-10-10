@@ -1,12 +1,12 @@
 import React from "react";
 import { FiUser, FiLogOut } from "react-icons/fi";
-
-const Header = (props) => {
-  let { navigate } = props;
+import { useNavigate } from "react-router-dom";
+const Header = () => {
+  
+    const navigate = useNavigate();
 
   function logout() {
     navigate("/");
-
     localStorage.clear();
   }
 

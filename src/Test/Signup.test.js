@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
-import Signup from "../Components/Signup";
+import {Signup} from "../Components/Signup";
 import userEvent from "@testing-library/user-event";
 
 describe("Test the Signup Component", () => {
   test("email input field should accept email", () => {
-    render(<Signup />);
+    render(<Signup/>);
 
     const email = screen.getByTestId("email");
 

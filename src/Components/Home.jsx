@@ -2,11 +2,12 @@ import React from "react";
 import Header from "./Header";
 import { Card } from "./Card";
 
-const Home = () => {
+const Home = (props) => {
 
+    
   return (
     <div>
-      <Header/>
+      <Header />
       <Card/>
     </div>
   );

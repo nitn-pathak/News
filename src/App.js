@@ -15,7 +15,7 @@ function App() {
         <Route path="/Signup" element={<Signup navigate={navigate} />} />
         <Route
           path="/home"
-          element={<Protected Component={Home} navigate={navigate} />}
+          element={<Protected Component={Home} />}
         />
       </Routes>
     </div>

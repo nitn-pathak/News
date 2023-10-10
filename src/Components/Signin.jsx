@@ -22,15 +22,12 @@ const Signin = (props) => {
   function handelLoginEvent(e) {
     e.preventDefault();
 
-    console.log(email);
-    console.log(password);
-
     setEmail("");
     setPassword("");
     fetchdata();
   }
 
-  async function fetchdata() {
+  async function fetchdata(){
     let apiResult = await axios(
       `https://651d0d3344e393af2d591290.mockapi.io/user-authentication`
     );

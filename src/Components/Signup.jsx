@@ -92,7 +92,7 @@ const Signup = (props) => {
         header
       );
     } catch (e) {
-      console.log(console.error);
+       alert(console.error);
     }
   }
 
