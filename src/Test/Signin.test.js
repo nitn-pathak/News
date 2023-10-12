@@ -20,7 +20,7 @@ describe("Test the Login Component", () => {
 
     userEvent.type(email, "dipesh");
 
-    expect(email.value).not.toMatch("dispesh@gmmail.com");
+    expect(email.value).not.toMatch("dispesh@gmail.com");
   });
 
   test("Password input field should accept password", () => {

@@ -9,7 +9,7 @@ const Signin = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function notify() {
+  function notify(){
     toast.error(
       "User Not Registered or Wrong Password !",
       {
@@ -19,18 +19,27 @@ const Signin = (props) => {
     );
   }
 
+
   function handelLoginEvent(e) {
     e.preventDefault();
 
     setEmail("");
     setPassword("");
-    fetchdata();
+
+     fetchdata();
+  
   }
 
   async function fetchdata(){
+    
     let apiResult = await axios(
       `https://651d0d3344e393af2d591290.mockapi.io/user-authentication`
-    );
+    ).catch(error=>{
+
+       alert(error)
+       navigate('/')
+
+    })
 
     let allUserData = [];
 
@@ -46,7 +55,7 @@ const Signin = (props) => {
     }
   }
 
-  function filterr(data) {
+  function filterr(data){
     let Userdata = data.filter(function (mockapi) {
       const User = mockapi.email === email && mockapi.password === password;
 
@@ -58,7 +67,7 @@ const Signin = (props) => {
 
   return (
     <div className="overflow-hidden h-[100vh] flex flex-col justify-center items-center">
-      <div className="flex flex-col justify-center items-center gap-5  bg-violet-500  text-white  h-[70vh] w-[90%] lg:w-[50vw]  rounded-lg   ">
+      <div className="flex flex-col justify-center items-center gap-5  bg-violet-500  text-black  h-[70vh] w-[90%] lg:w-[50vw]  rounded-lg   ">
         <h1 className="text-2xl">
           <span className="text-3xl font-semibold">SignIn </span> to NewsBreak{" "}
         </h1>
@@ -102,7 +111,7 @@ const Signin = (props) => {
               aria-label="sign in button"
               className="flex flex-row justify-evenly items-center"
             >
-              <button className="bg-black px-10 py-2 rounded-full">
+              <button className="bg-black text-white px-10 py-2 rounded-full">
                 <ToastContainer />
                 Sign In
               </button>
@@ -114,7 +123,6 @@ const Signin = (props) => {
             >
               Don't have an account?
               <a
-                aria-label=" signup link"
                 href="/signup"
                 className="underline"
                 alt="sign-up-link"

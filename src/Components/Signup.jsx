@@ -75,7 +75,13 @@ const Signup = (props) => {
       setEmail("");
       setPassword("");
 
-      fetchdata();
+        fetchdata();
+
+    
+
+
+
+
     }
   }
 
@@ -98,18 +104,25 @@ const Signup = (props) => {
 
   //fetch users data from mockapi
   async function fetchdata() {
+
+    
+
+
     let apiResult = await axios(
       `https://651d0d3344e393af2d591290.mockapi.io/user-authentication`
-    );
+    ).catch(error=>{
 
-    console.log(apiResult.data);
+      alert(error)
+       navigate('/signup')
+
+   })
+
+
 
     let allUserData = [];
 
     allUserData = apiResult.data;
-
     let userArray = filter(allUserData);
-
     if (userArray.length === 0) {
       register();
       notifySucessfull();
@@ -117,6 +130,14 @@ const Signup = (props) => {
     } else {
       notifyRegisteredAlredy();
     }
+
+
+
+    
+
+
+
+
   }
 
   //check user is alredy registered or not.
@@ -134,7 +155,7 @@ const Signup = (props) => {
     <section className="overflow-hidden h-[100vh] flex flex-col justify-center items-center">
       <section
         aria-label="signin form"
-        className="flex flex-col justify-center items-center gap-3 bg-violet-500  text-white h-[70vh] w-[90%] lg:w-[50vw] rounded-lg  "
+        className="flex flex-col justify-center items-center gap-3 bg-violet-500  text-black h-[70vh] w-[90%] lg:w-[50vw] rounded-lg  "
       >
         <h1 className="text-2xl">
           <span className="text-3xl font-semibold">SignUp </span> to NewsBreak
@@ -190,8 +211,8 @@ const Signup = (props) => {
             <section>
               <button
                 aria-label="signup button"
-                className="bg-black px-10 py-2 rounded-full"
-                handleClick
+                className="bg-black px-10 text-white py-2 rounded-full"
+                
               >
                 Sign Up
               </button>
