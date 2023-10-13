@@ -6,10 +6,12 @@ const Home = (props) => {
 
     
   return (
+
     <div>
        <Header /> 
       <Card/>
     </div>
+
   );
 };
 

@@ -11,21 +11,26 @@ this.addEventListener("install", (event) => {
         "/",
         "/signup",
         "/home",
+        
+     
       ]);
     })
   );
 });
 
 this.addEventListener("fetch", (event) => {
+
   if (!navigator.onLine) {
+
     event.respondWith(
       caches.match(event.request).then((result) => {
-        if (result) {
+        if (result){
           return result;
         }
 
-        let requestUrl = event.request.clone();
-        return fetch(requestUrl);
+           let requestUrl = event.request.clone();
+             fetch(requestUrl);
+    
       })
     );
   }

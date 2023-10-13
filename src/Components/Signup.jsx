@@ -132,12 +132,6 @@ const Signup = (props) => {
     }
 
 
-
-    
-
-
-
-
   }
 
   //check user is alredy registered or not.

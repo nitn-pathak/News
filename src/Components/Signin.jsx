@@ -9,7 +9,7 @@ const Signin = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function notify(){
+  function notify() {
     toast.error(
       "User Not Registered or Wrong Password !",
       {
@@ -19,27 +19,22 @@ const Signin = (props) => {
     );
   }
 
-
   function handelLoginEvent(e) {
     e.preventDefault();
 
     setEmail("");
     setPassword("");
 
-     fetchdata();
-  
+    fetchdata();
   }
 
-  async function fetchdata(){
-    
+  async function fetchdata() {
     let apiResult = await axios(
       `https://651d0d3344e393af2d591290.mockapi.io/user-authentication`
-    ).catch(error=>{
-
-       alert(error)
-       navigate('/')
-
-    })
+    ).catch((error) => {
+      alert(error);
+      navigate("/");
+    });
 
     let allUserData = [];
 
@@ -55,7 +50,7 @@ const Signin = (props) => {
     }
   }
 
-  function filterr(data){
+  function filterr(data) {
     let Userdata = data.filter(function (mockapi) {
       const User = mockapi.email === email && mockapi.password === password;
 
@@ -122,11 +117,7 @@ const Signin = (props) => {
               className="flex flex-row justify-center"
             >
               Don't have an account?
-              <a
-                href="/signup"
-                className="underline"
-                alt="sign-up-link"
-              >
+              <a href="/signup" className="underline" alt="sign-up-link">
                 Sign Up
               </a>
             </section>
